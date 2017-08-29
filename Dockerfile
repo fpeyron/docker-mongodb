@@ -20,7 +20,7 @@ RUN \
 
 
 # Add Initial data
-ADD initial_data /initial_data
+#ADD initial_data /initial_data
 #RUN mkdir /initial_data
 
 # Add scripts

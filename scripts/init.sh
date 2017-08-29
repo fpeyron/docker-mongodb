@@ -7,7 +7,7 @@ while ! nc -vz localhost 27017; do sleep 1; done
 
 # Init Data
 echo "========================================================================"
-for file in /initial_data/*.json;
+for file in /scripts/*.json;
 do
     col=$(basename ${file%%.*})
     mongoimport --drop --db ${MONGODB_DBNAME:demo} --collection $col --type json --file $file
