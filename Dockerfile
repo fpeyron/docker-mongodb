@@ -6,7 +6,6 @@
 FROM debian:jessie-slim
 
 # Environment variables
-ENV MONGODB_VERSION "3.4"
 ENV MONGODB_USERNAME ""
 ENV MONGODB_PASSWORD ""
 ENV MONGODB_DBNAME "demo"
@@ -14,7 +13,7 @@ ENV MONGODB_DBNAME "demo"
 # Install MongoDB.
 RUN \
   apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6 && \
-  echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/$MONGODB_VERSION main" | tee /etc/apt/sources.list.d/mongodb-org.list && \
+  echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.4 main" | tee /etc/apt/sources.list.d/mongodb-org.list && \
   apt-get update && \
   apt-get install -y mongodb-org netcat && \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
