@@ -28,8 +28,8 @@ ADD scripts /scripts
 RUN chmod +x /scripts/*.sh && mkdir -p /data && touch /data/.firstrun
 
 # Command to run
-#ENTRYPOINT ["/scripts/run.sh"]
-#CMD [""]
+ENTRYPOINT ["/scripts/run.sh"]
+CMD [""]
 
 # Expose ports.
 #   - 27017: process
