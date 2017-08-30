@@ -19,17 +19,13 @@ RUN \
   apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-# Add Initial data
-#ADD initial_data /initial_data
-#RUN mkdir /initial_data
-
 # Add scripts
 ADD scripts /scripts
-RUN chmod +x /scripts/*.sh && mkdir -p /data && touch /data/.firstrun
+RUN chmod +x /scripts/*.sh && mkdir -p /data
 
 # Command to run
+#CMD ls -la /data /scripts
 ENTRYPOINT ["/scripts/run.sh"]
-CMD [""]
 
 # Expose ports.
 #   - 27017: process

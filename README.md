@@ -28,7 +28,6 @@ $ docker run -d \
 	--name mongodb \
 	-p 27017:27017 \
 	-p 28017:28017 \
-	--httpinterface \
 	florentpeyron/mongodb 
 ```
 
@@ -38,7 +37,7 @@ You have to fill environment variable :
 * `MONGODB_USERNAME` to set username
 
 And you can fill this environment variable :
-* `MONGODB_PASSWORD` to specify password (by default is random)
+* `MONGODB_PASSWORD` to specify password (by default is username)
 * `MONGODB_DBNAME` to specify dbname (by default `admin`)
 * `MONGODB_ROLE` to specify login's role (by default `dbAdminAnyDatabase` if `MONGODB_DBNAME` is empty else `dbOwner` )
 
@@ -101,13 +100,13 @@ $ docker run -d \
 
 #### Persistent data
 
-The store data is `/data/db`. It possible to map this volume with the host and persistent updating after restarts :
+The store data is `/data`. It possible to map this volume with the host and persistent updating after restarts :
 ```
 $ mkdir -p /tmp/mongodb
 $ docker run -d \
     --name mongodb \
     -p 27017:27017 \
-    -v /tmp/mongodb:/data/db \
+    -v /tmp/mongodb:/data \
     florentpeyron/mongodb
 ```
 
