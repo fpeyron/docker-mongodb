@@ -58,8 +58,6 @@ The first time you run your container,  a new user `mongo` with all privileges w
 To get the password, check the logs of the container by running:
 
 
-```
-
 #### Credentials
 
 If you want to preset credentials instead of a random generated ones, you can set the following environment variables:
@@ -112,11 +110,11 @@ $ docker run \
 
 ## 
 ```
-docker build -t newsbridge/template-mongodb:latest -t 677537359471.dkr.ecr.eu-west-1.amazonaws.com/template-mongodb:latest .
-docker tag newsbridge/template-mongodb:latest newsbridge/template-mongodb:3.4
-$(aws ecr get-login --no-include-email)
-docker push 677537359471.dkr.ecr.eu-west-1.amazonaws.com/template-mongodb:latest
-docker push 677537359471.dkr.ecr.eu-west-1.amazonaws.com/template-mongodb:3.4
+$ docker build -t newsbridge/template-mongodb:latest -t 677537359471.dkr.ecr.eu-west-1.amazonaws.com/template-mongodb:latest .
+$ docker tag newsbridge/template-mongodb:latest newsbridge/template-mongodb:3.4
+$ $(aws ecr get-login --no-include-email)
+$ docker push 677537359471.dkr.ecr.eu-west-1.amazonaws.com/template-mongodb:latest
+$ docker push 677537359471.dkr.ecr.eu-west-1.amazonaws.com/template-mongodb:3.4
 ``` 
 
 ## Copyright
