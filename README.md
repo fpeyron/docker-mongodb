@@ -89,12 +89,12 @@ On this example we will preset our custom username and password and we will crea
 
 ```
 $ docker run -d \
-    --name mongodb \
+    --name template-mongodb \
     -p 27017:27017 \
     -e MONGODB_USERNAME=myusername \
     -e MONGODB_PASSWORD=mypassword \
     -e MONGODB_DBNAME=mydb \
-    florentpeyron/mongodb
+    template-mongodb
 ```
 
 
@@ -103,12 +103,21 @@ $ docker run -d \
 The store data is `/data`. It possible to map this volume with the host and persistent updating after restarts :
 ```
 $ mkdir -p /tmp/mongodb
-$ docker run -d \
-    --name mongodb \
+$ docker run \
+    --name template-mongodb \
     -p 27017:27017 \
     -v /tmp/mongodb:/data \
-    florentpeyron/mongodb
+    template-mongodb:latest
 ```
+
+## 
+```
+docker build -t newsbridge/template-mongodb:latest -t 677537359471.dkr.ecr.eu-west-1.amazonaws.com/template-mongodb:latest .
+docker tag newsbridge/template-mongodb:latest newsbridge/template-mongodb:3.4
+$(aws ecr get-login --no-include-email)
+docker push 677537359471.dkr.ecr.eu-west-1.amazonaws.com/template-mongodb:latest
+docker push 677537359471.dkr.ecr.eu-west-1.amazonaws.com/template-mongodb:3.4
+``` 
 
 ## Copyright
 
